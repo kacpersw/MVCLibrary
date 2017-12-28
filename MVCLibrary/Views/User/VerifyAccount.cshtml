@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "VerifyAccount";
+}
+
+<div class="navbar navbar-fixed-top orange">
+    <div class="container">
+        <div class="navbar-header">
+            <span class="black medium">Do you have an account?</span>
+            <br />
+            @Html.ActionLink("Log in", "Login", "User", new { @class = "medium black bigletters" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav"></ul>
+        </div>
+    </div>
+</div>
+<h2 class="text-center black bigletters">Verify account</h2>
+<br />
+@if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+{
+    <div class="alert text-center medium black">
+        Twoje konto zostało aktywowane. @Html.ActionLink("Click here to log in.", "Login", "User", new { @class = "black" })
+    </div>
+}
+else
+{
+    <div class="alert alert-danger">
+        <strong>Error!</strong>@ViewBag.Message
+    </div>
+}
