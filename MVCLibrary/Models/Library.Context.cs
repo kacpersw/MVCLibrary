@@ -26,5 +26,11 @@ namespace MVCLibrary.Models
         }
     
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<AdminMessage> AdminMessage { get; set; }
+        public virtual DbSet<Book> Book { get; set; }
+        public virtual DbSet<BookSpecimen> BookSpecimen { get; set; }
+        public virtual DbSet<Borrow> Borrow { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<Limit> Limit { get; set; }
     }
 }

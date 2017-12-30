@@ -6,6 +6,16 @@
     <edmx:Diagrams>
       <Diagram DiagramId="b74e1d345cf04cde9925813864dbfa88" Name="Diagram1" >
         <EntityTypeShape EntityType="LibraryModel.Users" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LibraryModel.AdminMessage" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LibraryModel.Book" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="LibraryModel.BookSpecimen" Width="1.5" PointX="3.75" PointY="1.25" />
+        <EntityTypeShape EntityType="LibraryModel.Borrow" Width="1.5" PointX="6" PointY="1" />
+        <EntityTypeShape EntityType="LibraryModel.Category" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="LibraryModel.Limit" Width="1.5" PointX="7.75" PointY="4.75" />
+        <AssociationConnector Association="LibraryModel.fkToCategory" />
+        <AssociationConnector Association="LibraryModel.fkBook" />
+        <AssociationConnector Association="LibraryModel.fkUser" />
+        <AssociationConnector Association="LibraryModel.fkBookSpecimen" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

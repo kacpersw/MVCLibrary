@@ -2,6 +2,28 @@
 <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Users" EntityType="LibraryModel.Users" />
+    <EntitySet Name="AdminMessage" EntityType="LibraryModel.AdminMessage" />
+    <EntitySet Name="Book" EntityType="LibraryModel.Book" />
+    <EntitySet Name="BookSpecimen" EntityType="LibraryModel.BookSpecimen" />
+    <EntitySet Name="Borrow" EntityType="LibraryModel.Borrow" />
+    <EntitySet Name="Category" EntityType="LibraryModel.Category" />
+    <EntitySet Name="Limit" EntityType="LibraryModel.Limit" />
+    <AssociationSet Name="fkToCategory" Association="LibraryModel.fkToCategory">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="fkBook" Association="LibraryModel.fkBook">
+      <End Role="BookSpecimen" EntitySet="BookSpecimen" />
+      <End Role="Borrow" EntitySet="Borrow" />
+    </AssociationSet>
+    <AssociationSet Name="fkUser" Association="LibraryModel.fkUser">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Borrow" EntitySet="Borrow" />
+    </AssociationSet>
+    <AssociationSet Name="fkBookSpecimen" Association="LibraryModel.fkBookSpecimen">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="BookSpecimen" EntitySet="BookSpecimen" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -15,5 +37,112 @@
     <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IsUserVerified" Type="Boolean" />
     <Property Name="ActivationCode" Type="Guid" />
+    <NavigationProperty Name="Borrow" Relationship="LibraryModel.fkUser" FromRole="Users" ToRole="Borrow" />
   </EntityType>
+  <EntityType Name="AdminMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ISBN" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CountBooks" Type="Int32" Nullable="false" />
+    <Property Name="CategoryId" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="LibraryModel.fkToCategory" FromRole="Book" ToRole="Category" />
+    <NavigationProperty Name="BookSpecimen" Relationship="LibraryModel.fkBookSpecimen" FromRole="Book" ToRole="BookSpecimen" />
+  </EntityType>
+  <EntityType Name="BookSpecimen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookId" Type="Int32" Nullable="false" />
+    <Property Name="StatusOfBook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Borrow" Relationship="LibraryModel.fkBook" FromRole="BookSpecimen" ToRole="Borrow" />
+    <NavigationProperty Name="Book" Relationship="LibraryModel.fkBookSpecimen" FromRole="BookSpecimen" ToRole="Book" />
+  </EntityType>
+  <EntityType Name="Borrow">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BookId" Type="Int32" Nullable="false" />
+    <Property Name="BorrowDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="BorrowState" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BookSpecimen" Relationship="LibraryModel.fkBook" FromRole="Borrow" ToRole="BookSpecimen" />
+    <NavigationProperty Name="Users" Relationship="LibraryModel.fkUser" FromRole="Borrow" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameOfCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ParentId" Type="Int32" />
+    <NavigationProperty Name="Book" Relationship="LibraryModel.fkToCategory" FromRole="Category" ToRole="Book" />
+  </EntityType>
+  <EntityType Name="Limit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountOfBooks" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="fkToCategory">
+    <End Type="LibraryModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="LibraryModel.Book" Role="Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkBook">
+    <End Type="LibraryModel.BookSpecimen" Role="BookSpecimen" Multiplicity="1" />
+    <End Type="LibraryModel.Borrow" Role="Borrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BookSpecimen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Borrow">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkUser">
+    <End Type="LibraryModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="LibraryModel.Borrow" Role="Borrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Borrow">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkBookSpecimen">
+    <End Type="LibraryModel.Book" Role="Book" Multiplicity="1" />
+    <End Type="LibraryModel.BookSpecimen" Role="BookSpecimen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BookSpecimen">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

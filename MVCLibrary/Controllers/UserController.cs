@@ -39,7 +39,8 @@ namespace MVCLibrary.Controllers
 
                 user.Pass = Crypto.Hash(user.Pass);
                 user.ConfirmPass = Crypto.Hash(user.ConfirmPass);
-                user.IsUserVerified = true;
+                user.IsUserVerified = false;
+                user.Role = user.Role;
 
                 using (LibraryEntities dbContext = new LibraryEntities())
                 {
@@ -80,10 +81,10 @@ namespace MVCLibrary.Controllers
 
                 if (us != null)
                 {
-                    if(string.Compare(Crypto.Hash(user.Password),us.Pass)==0)
+                    if(string.Compare(Crypto.Hash(user.Password),us.Pass)==0 && us.IsUserVerified==true)
                     {
                         int timeout = user.RememberMr ? 525600 : 20;
-                        var ticket = new FormsAuthenticationTicket(user.EmailID, user.RememberMr, timeout);
+                        var ticket = new FormsAuthenticationTicket(1, user.EmailID, DateTime.Now, DateTime.Now.AddMinutes(20), user.RememberMr, String.Join("|", us.Role));
                         string encrypted = FormsAuthentication.Encrypt(ticket);
                         var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
                         cookie.Expires = DateTime.Now.AddMinutes(timeout);

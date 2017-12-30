@@ -12,24 +12,19 @@ namespace MVCLibrary.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public Category()
         {
-            this.Borrow = new HashSet<Borrow>();
+            this.Book = new HashSet<Book>();
         }
     
-        public int UserID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string EmailID { get; set; }
-        public string Pass { get; set; }
-        public string Role { get; set; }
-        public Nullable<bool> IsUserVerified { get; set; }
-        public Nullable<System.Guid> ActivationCode { get; set; }
+        public int Id { get; set; }
+        public string NameOfCategory { get; set; }
+        public Nullable<int> ParentId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Borrow> Borrow { get; set; }
+        public virtual ICollection<Book> Book { get; set; }
     }
 }

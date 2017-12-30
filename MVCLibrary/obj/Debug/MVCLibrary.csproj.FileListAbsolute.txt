@@ -98,3 +98,203 @@ C:\Users\Ibra18plus\Desktop\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.csprojRes
 C:\Users\Ibra18plus\Desktop\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.csproj.CoreCompileInputs.cache
 C:\Users\Ibra18plus\Desktop\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.dll
 C:\Users\Ibra18plus\Desktop\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.pdb
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\ApplicationInsights.config
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\csc.exe
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\csc.exe.config
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\csc.rsp
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\csi.exe
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\csi.exe.config
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\csi.rsp
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.AppContext.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Console.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.IO.Compression.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Claims.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Threading.Thread.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.ValueTuple.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\vbc.exe
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\vbc.exe.config
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\vbc.rsp
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\VBCSCompiler.exe
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\MVCLibrary.dll.config
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\MVCLibrary.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\MVCLibrary.pdb
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Antlr3.Runtime.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\EntityFramework.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\EntityFramework.SqlServer.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.AI.Web.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Newtonsoft.Json.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Net.Http.Formatting.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Helpers.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Http.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Http.WebHost.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Mvc.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Optimization.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Razor.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.Razor.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\WebGrease.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\EntityFramework.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\EntityFramework.SqlServer.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Newtonsoft.Json.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Net.Http.Formatting.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Helpers.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Http.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Http.WebHost.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Mvc.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Optimization.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.Razor.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.Razor.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Antlr3.Runtime.pdb
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\bin\Microsoft.AI.Web.xml
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.dll
+C:\Users\Kacper\Desktop\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.pdb
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\ApplicationInsights.config
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\csc.exe
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\csc.exe.config
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\csc.rsp
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\csi.exe
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\csi.exe.config
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\csi.rsp
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.AppContext.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Console.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Diagnostics.Process.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.IO.Compression.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.IO.Pipes.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Claims.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Threading.Thread.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.ValueTuple.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Xml.XPath.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\vbc.exe
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\vbc.exe.config
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\vbc.rsp
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\VBCSCompiler.exe
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\MVCLibrary.dll.config
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\MVCLibrary.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\MVCLibrary.pdb
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Antlr3.Runtime.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\EntityFramework.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\EntityFramework.SqlServer.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.AI.Web.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Newtonsoft.Json.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Net.Http.Formatting.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Helpers.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Http.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Http.WebHost.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Mvc.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Optimization.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Razor.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.Razor.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\WebGrease.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\EntityFramework.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\EntityFramework.SqlServer.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Newtonsoft.Json.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Net.Http.Formatting.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Helpers.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Http.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Http.WebHost.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Mvc.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Optimization.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.Razor.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\System.Web.WebPages.Razor.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Antlr3.Runtime.pdb
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\bin\Microsoft.AI.Web.xml
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.dll
+C:\Users\Ibra18plus\Desktop\PROJEKT MVC\MVCLibrary\MVCLibrary\obj\Debug\MVCLibrary.pdb
