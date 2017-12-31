@@ -6,6 +6,8 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="MainPage" Type="bit" />
   </EntityType>
   <EntityType Name="Book">
     <Key>

@@ -11,10 +11,15 @@ namespace MVCLibrary.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class AdminMessage
     {
         public int Id { get; set; }
+        public string Title { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Content { get; set; }
+        [Display(Name = "Wstaw na stronê g³ówn¹")]
+        public Nullable<bool> MainPage { get; set; }
     }
 }

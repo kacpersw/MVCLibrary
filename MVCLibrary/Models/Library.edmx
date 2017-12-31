@@ -11,6 +11,8 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="MainPage" Type="bit" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -191,6 +193,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MainPage" Type="Boolean" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -314,6 +318,8 @@
           <EntitySetMapping Name="AdminMessage">
             <EntityTypeMapping TypeName="LibraryModel.AdminMessage">
               <MappingFragment StoreEntitySet="AdminMessage">
+                <ScalarProperty Name="MainPage" ColumnName="MainPage" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Content" ColumnName="Content" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

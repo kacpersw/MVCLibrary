@@ -17,12 +17,13 @@ namespace MVCLibrary.Controllers
             this.dbContext = new LibraryEntities();
         }
 
-        // GET: Admin
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult WorkersToVerify()
         {
 
@@ -33,6 +34,7 @@ namespace MVCLibrary.Controllers
             return View(workers);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult VerifyWorker(string emailID)
         {
 
@@ -50,6 +52,7 @@ namespace MVCLibrary.Controllers
             return View("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult RemoveWorker(string emailID)
         {
 
@@ -67,27 +70,73 @@ namespace MVCLibrary.Controllers
             return View("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult AddMessage()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult AddMessage(AdminMessage message)
         {
+            message.MainPage = true;
             dbContext.AdminMessage.Add(message);
             dbContext.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Admin");
         }
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult ManageMessages()
+        {
+            var vm = dbContext.AdminMessage.ToList();
+
+            return View(vm);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddToMainPage(int id)
+        {
+            var message = dbContext.AdminMessage.Where(m => m.Id == id).FirstOrDefault();
+
+            message.MainPage = true;
+            dbContext.SaveChanges();
+
+            return RedirectToAction("ManageMessages", "Admin");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult RemoveFromMainPage(int id)
+        {
+            var message = dbContext.AdminMessage.Where(m => m.Id == id).FirstOrDefault();
+
+            message.MainPage = false;
+            dbContext.SaveChanges();
+
+            return RedirectToAction("ManageMessages", "Admin");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult RemoveMessage(int id)
+        {
+            var message = dbContext.AdminMessage.Where(m => m.Id == id).FirstOrDefault();
+
+            dbContext.AdminMessage.Remove(message);
+            dbContext.SaveChanges();
+
+            return RedirectToAction("ManageMessages", "Admin");
+        }
+
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult AddLimit()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult AddLimit(Limit limit)
         {
@@ -106,7 +155,7 @@ namespace MVCLibrary.Controllers
                 throw e;
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Admin");
         }
     }
 }

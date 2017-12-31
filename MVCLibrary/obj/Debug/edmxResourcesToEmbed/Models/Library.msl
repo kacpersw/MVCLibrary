@@ -18,6 +18,8 @@
     <EntitySetMapping Name="AdminMessage">
       <EntityTypeMapping TypeName="LibraryModel.AdminMessage">
         <MappingFragment StoreEntitySet="AdminMessage">
+          <ScalarProperty Name="MainPage" ColumnName="MainPage" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Content" ColumnName="Content" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>

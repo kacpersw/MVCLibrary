@@ -33,8 +33,9 @@ namespace MVCLibrary.Models
         [MinLength(6,ErrorMessage = "Hasło musi się składać z minimum 6 znaków")]
         public string Pass { get; set; }
 
-        [Display(Name = "Potwierdz hasło")]
+        [Display(Name = "Potwierdź hasło")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Potwierdzenie hasła jest wymagane")]
+        [DataType(DataType.Password)]
         [Compare("Pass", ErrorMessage = "Hasła są inne")]
         public string ConfirmPass { get; set; }
 

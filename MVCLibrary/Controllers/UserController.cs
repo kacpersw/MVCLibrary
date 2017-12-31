@@ -47,7 +47,7 @@ namespace MVCLibrary.Controllers
                     dbContext.Users.Add(user);
                     dbContext.SaveChanges();
 
-                    message = "Rejestracja zakończona pomyślnie. Link aktywacyjny wysłano na maila";
+                    message = "Rejestracja zakończona pomyślnie. Po weryfikacji przez administratora dostaniesz dostęp do swojego konta.";
 
                     Status = true;
                 }
@@ -121,32 +121,6 @@ namespace MVCLibrary.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "User");
-        }
-
-
-        [HttpGet]
-        public ActionResult VerifyAccount(string id)
-        {
-            bool Status = false;
-
-            using (LibraryEntities dbContext = new LibraryEntities())
-            {
-                dbContext.Configuration.ValidateOnSaveEnabled = false;
-                var v = dbContext.Users.Where(u => u.ActivationCode == new Guid(id)).FirstOrDefault();
-
-                if (v != null)
-                {
-                    v.IsUserVerified = true;
-                    dbContext.SaveChanges();
-                    Status = true;
-                }
-                else
-                {
-                    ViewBag.Message = "Nieprawidłowe żądanie";
-                }
-            }
-
-            return View();
         }
 
         [NonAction]

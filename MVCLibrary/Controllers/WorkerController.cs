@@ -97,5 +97,49 @@ namespace MVCLibrary.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public ActionResult AddBook()
+        {
+            var categories = dbContext.Category.ToList();
+
+            var vm = new BookViewModel();
+
+            vm.Categories = categories.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.NameOfCategory
+            });
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult AddBook(BookViewModel vm)
+        {
+            Book book = new Book
+            {
+                Author = vm.Author,
+                CategoryId = vm.CategoryId,
+                CountBooks = vm.CountBooks,
+                ISBN = vm.ISBN,
+                Title = vm.Title
+            };
+
+            dbContext.Book.Add(book);
+
+            for (int i = 0; i < vm.CountBooks; i++)
+            {
+                dbContext.BookSpecimen.Add(new BookSpecimen
+                {
+                    BookId = book.Id,
+                    StatusOfBook = "Magazyn"
+                });
+            }
+
+            dbContext.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

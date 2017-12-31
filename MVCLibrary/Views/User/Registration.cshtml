@@ -3,15 +3,16 @@
 @{
     ViewBag.Title = "Registration";
 }
-
-<h2>Registration</h2>
+<div class="text-center">
+    <h2>Rejestracja</h2>
+</div>
 
 
 @if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
 {
     if (ViewBag.Message != null)
     {
-        <div class="alet alert-danger">
+        <div class="alet alert-success">
             <strong>Sukces!</strong> @ViewBag.Message
         </div>
     }
@@ -22,78 +23,76 @@ else
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
+        <div class="text-center">
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+            <br/>
+            <div class="text-center">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "text-center" })
+                <div class="text-center">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "text-center" } })
                     @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+            <br />
+            <div class="text-center">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "text-center" })
+                <br />
+                <div class="text-center">
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "text-center" } })
                     @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.EmailID, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @class = "form-control" } })
+            <br />
+            <div class="text-center">
+                @Html.LabelFor(model => model.EmailID, htmlAttributes: new { @class = "text-center" })
+                <br />
+                <div class="text-center">
+                    @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @class = "text-center" } })
                     @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
                     @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Pass, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "form-control" } })
+            <br />
+            <div class="text-center">
+                @Html.LabelFor(model => model.Pass, htmlAttributes: new { @class = "text-center" })
+                <br />
+                <div class="text-center">
+                    @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "text-center" } })
                     @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })
                 </div>
             </div>
-
+            <br />
             <div class="form-group">
-                @Html.LabelFor(model => model.ConfirmPass, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ConfirmPass, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.LabelFor(model => model.ConfirmPass, htmlAttributes: new { @class = "text-center" })
+                <br />
+                <div class="text-center">
+                    @Html.EditorFor(model => model.ConfirmPass, new { htmlAttributes = new { @class = "text-center" } })
                     @Html.ValidationMessageFor(model => model.ConfirmPass, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            <label for="role">Rola</label>
             <br />
-            <div >
-                <select name="Role" id="role" class="inputs-size-bigger" required>
-                    <option value="Admin">Administrator</option>
-                    <option value="Worker">Pracownik</option>
-                    <option value="User">Użytkownik</option>
-                </select>
-            </div>
-
-
-            @*<div class="form-group">
-                @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Role, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+            <div class="text-center">
+                <label for="role">Rola</label>
+                <br />
+                <div>
+                    <select name="Role" id="role" class="inputs-size-bigger" required>
+                        <option value="Admin">Administrator</option>
+                        <option value="Worker">Pracownik</option>
+                        <option value="User">Użytkownik</option>
+                    </select>
                 </div>
-            </div>*@
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Zarejestruj się" class="btn btn-default" />
+            </div>
+            
+            <br />
+            <div class="text-center">
+                <div class="text-center">
+                    <input type="submit" value="Zarejestruj się" class="btn btn-success" />
                 </div>
             </div>
         </div>
 
-        if(ViewBag.Message != null)
+        if (ViewBag.Message != null)
         {
             <div class="alet alert-danger">
                 <strong>Błąd!</strong> @ViewBag.Message
@@ -102,9 +101,6 @@ else
     }
 }
 
-<div>
-    @Html.ActionLink("Login", "Login")
-</div>
 
 
 @section Scripts {

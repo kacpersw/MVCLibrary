@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="text-center">
+    <h3>Co chcesz zrobić?</h3>
+    <br />
+
+    @Html.ActionLink("Zarządzaj pracownikami", "WorkersToVerify", "Admin", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br/>
+    <br/>   
+    @Html.ActionLink("Dodaj wiadomość", "AddMessage", "Admin", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br/>
+    <br/>
+    @Html.ActionLink("Zarządzaj wiadomościami", "ManageMessages", "Admin", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br />
+    <br />
+    @Html.ActionLink("Zmień limit książek", "AddLimit", "Admin", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+
+
+</div> 

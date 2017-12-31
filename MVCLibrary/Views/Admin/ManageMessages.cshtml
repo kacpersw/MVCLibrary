@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MVCLibrary.Models.AdminMessage>
+
+@{
+    ViewBag.Title = "ManageMessages";
+}
+@if (Model != null)
+{
+    <div class="text-center">
+        <h2>Wiadomości</h2>
+    </div>
+    <br />
+    <br />
+
+    foreach (var message in Model)
+    {
+        <div class="text-center">
+            <h4>@message.Title</h4>
+            <div>@message.Content</div>
+            <br />
+            @if (message.MainPage == false)
+            {
+                @Html.ActionLink("Dodaj na stronę główną", "AddToMainPage", new { id = message.Id }, new { @class = "btn btn-success btn-adm-width" })
+            }
+            @if (message.MainPage == true)
+            {
+                @Html.ActionLink("Usuń ze strony głównej", "RemoveFromMainPage", new { id = message.Id }, new { @class = "btn btn-success btn-adm-width" })
+            }
+            <br/><br/>
+            @Html.ActionLink("Usuń wiadomość", "RemoveMessage", new { id = message.Id }, new { @class = "btn btn-danger btn-adm-width" })
+
+        </div>
+        <hr />
+        <br />
+        <br />
+        <br />
+    }
+}
+else
+{
+    <div class="text-center">
+        <h2>Obecnie nie ma żadnych wiadomości w bazie danych</h2>
+    </div>
+}
