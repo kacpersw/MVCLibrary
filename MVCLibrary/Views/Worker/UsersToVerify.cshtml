@@ -4,11 +4,10 @@
     ViewBag.Title = "UsersToVerify";
 }
 
-<h2>UsersToVerify</h2>
+<div class="text-center">
+    <h3>Użytkownicy</h3>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -19,12 +18,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EmailID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Role)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsUserVerified)
         </th>
         <th></th>
     </tr>
@@ -42,19 +35,13 @@
                 @Html.DisplayFor(modelItem => item.EmailID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Role)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsUserVerified)
-            </td>
-            <td>
                 @if (item.IsUserVerified == false)
                 {
-                    @Html.ActionLink("Weryfikuj", "VerifyUsers", new { emailID = item.EmailID })
+                    @Html.ActionLink("Weryfikuj", "VerifyUsers", new { emailID = item.EmailID }, new { @class = "btn btn-success"})
                 }
                 else
                 {
-                    @Html.ActionLink("Zwolnij", "RemoveUser", new { emailID = item.EmailID })
+                    @Html.ActionLink("Usuń", "RemoveUser", new { emailID = item.EmailID }, new { @class = "btn btn-danger" })
                 }
             </td>
         </tr>

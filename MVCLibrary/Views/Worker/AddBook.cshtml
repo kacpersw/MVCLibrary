@@ -4,63 +4,61 @@
     ViewBag.Title = "AddBook";
 }
 
-<h2>AddBook</h2>
+<div class="text-center">
+    <h2>Dodaj książkę</h2>
+</div>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>BookViewModel</h4>
+
+    <div class="text-center">
+        <h4>Książka</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.ISBN, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "form-control" } })
+        <div class="text-center">
+            @Html.LabelFor(model => model.ISBN, htmlAttributes: new { @class = "text-center" })<br/>
+            <div class="text-center">
+                @Html.EditorFor(model => model.ISBN, new { htmlAttributes = new { @class = "text-center" } })
                 @Html.ValidationMessageFor(model => model.ISBN, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+        <br />
+        <div class="text-center">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "text-center" })<br />
+            <div class="text-center">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "text-center" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+        <br />
+        <div class="text-center">
+            @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "text-center" })<br />
+            <div class="text-center">
+                @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "text-center" } })
                 @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CountBooks, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CountBooks, new { htmlAttributes = new { @class = "form-control" } })
+        <br />
+        <div class="text-center">
+            @Html.LabelFor(model => model.CountBooks, htmlAttributes: new { @class = "text-center" })<br />
+            <div class="text-center">
+                @Html.EditorFor(model => model.CountBooks, new { htmlAttributes = new { @class = "text-center" } })
                 @Html.ValidationMessageFor(model => model.CountBooks, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <br />
         <div class="text-center">
-            @Html.LabelFor(m => m.Categories, new { @class = "control-label" })<br />
+            @Html.LabelFor(m => m.Categories, new { @class = "text-center" })<br />
             <div class="">
                 @Html.DropDownList("CategoryId", Model.Categories, "Wybierz")
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+        <br />
+        <div class="text-center">
+            <div class="text-center">
+                <input type="submit" value="Dodaj książkę" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

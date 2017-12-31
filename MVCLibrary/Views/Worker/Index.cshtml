@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="text-center">
+    <h3>Co chcesz zrobić?</h3>
+    <br />
+    @Html.ActionLink("Zarządzaj użytkownikami", "UsersToVerify", "Worker", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br />
+    <br />
+    @Html.ActionLink("Dodaj kategorię", "AddCategory", "Worker", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br />
+    <br />
+    @Html.ActionLink("Lista kategorii", "CategoriesList", "Worker", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br />
+    <br />
+    @Html.ActionLink("Dodaj książkę", "AddBook", "Worker", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br />
+    <br />
+    @Html.ActionLink("Lista książek", "BooksList", "Worker", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br />
+    <br />
+    @Html.ActionLink("Dodaj odbiór książki", "", "", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br />
+    <br />
+    @Html.ActionLink("Dodaj zwrot książki", "", "", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+</div> 

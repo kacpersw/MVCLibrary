@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MVCLibrary.ViewModels.CategoryToShowViewModel>
+
+@{
+    ViewBag.Title = "CategoriesList";
+}
+
+<div class="text-center">
+    <h3>Lista kategorii</h3>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parent)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent)
+            </td>
+
+        </tr>
+    }
+
+</table>

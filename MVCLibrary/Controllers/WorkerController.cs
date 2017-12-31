@@ -23,6 +23,31 @@ namespace MVCLibrary.Controllers
             return View();
         }
 
+        public ActionResult CategoriesList()
+        {
+            var categories = dbContext.Category.ToList();
+
+            List<CategoryToShowViewModel> vm = new List<CategoryToShowViewModel>();
+            foreach (var category in categories)
+            {
+                string parentName;
+                var parent = dbContext.Category.Where(c => c.Id == category.ParentId).FirstOrDefault();
+
+                if (parent == null)
+                    parentName = "Brak";
+                else
+                    parentName = parent.NameOfCategory;
+
+                vm.Add(new CategoryToShowViewModel
+                {
+                    Id = category.Id,
+                    Name = category.NameOfCategory,
+                    Parent = parentName
+                });
+            }
+            return View(vm);
+        }
+
         public ActionResult UsersToVerify()
         {
 
@@ -140,6 +165,68 @@ namespace MVCLibrary.Controllers
             dbContext.SaveChanges();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult BooksList()
+        {
+            var books = dbContext.Book.ToList();
+
+            List<BookToShowViewModel> vm = new List<BookToShowViewModel>();
+
+            foreach (var book in books)
+            {
+                vm.Add(new BookToShowViewModel
+                {
+                    Id = book.Id,
+                    Author = book.Author,
+                    CountBooks = book.CountBooks,
+                    ISBN = book.ISBN,
+                    Title = book.Title,
+                    Category = dbContext.Category.Where(c=>c.Id == book.CategoryId).FirstOrDefault().NameOfCategory
+                });
+            }
+
+            return View(vm);
+        }
+
+        [HttpGet]
+        public ActionResult AddSpecimen(int id)
+        {
+            var bookId = dbContext.Book.Where(b => b.Id == id).FirstOrDefault().Id;
+
+            SpecimenViewModel vm = new SpecimenViewModel
+            {
+                Id = bookId,
+                Count = 0
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult AddSpecimen(SpecimenViewModel vm)
+        {
+            try
+            {
+                for (int i = 0; i < vm.Count; i++)
+                {
+                    dbContext.BookSpecimen.Add(new BookSpecimen
+                    {
+                        BookId = vm.Id,
+                        StatusOfBook = "Magazyn"
+                    });
+                }
+
+                var book = dbContext.Book.Where(b => b.Id == vm.Id).FirstOrDefault();
+                book.CountBooks += vm.Count;
+                dbContext.SaveChanges();
+            }
+            catch(Exception e)
+            {
+                return RedirectToAction("AddSpecimen", "Worker");
+            }
+
+            return RedirectToAction("Index", "Worker");
         }
     }
 }
