@@ -148,7 +148,8 @@ namespace MVCLibrary.Controllers
                 CategoryId = vm.CategoryId,
                 CountBooks = vm.CountBooks,
                 ISBN = vm.ISBN,
-                Title = vm.Title
+                Title = vm.Title,
+                BooksInLibrary = vm.CountBooks
             };
 
             dbContext.Book.Add(book);
@@ -227,6 +228,98 @@ namespace MVCLibrary.Controllers
             }
 
             return RedirectToAction("Index", "Worker");
+        }
+
+        public ActionResult BorrowsToVerify()
+        {
+            var borrows = dbContext.Borrow.Where(b => b.BorrowState == "Zgłoszono").ToList();
+            List<BorrowViewModel> vm = new List<BorrowViewModel>();
+
+            foreach (var borrow in borrows)
+            {
+                var specimen = dbContext.BookSpecimen.Where(s => s.Id == borrow.BookId).FirstOrDefault();
+                var book = dbContext.Book.Where(b => b.Id == specimen.BookId).FirstOrDefault();
+
+                vm.Add(new BorrowViewModel
+                {
+                    Id = borrow.Id,
+                    BookName = book.Title,
+                    Author = book.Author,
+                    BorrowDate = borrow.BorrowDate,
+                    BorrowState = borrow.BorrowState,
+                    Username = dbContext.Users.Where(u=>u.UserID == borrow.UserId).FirstOrDefault().EmailID
+                });
+            }
+
+            return View(vm);
+        }
+
+        public ActionResult ReturnBook()
+        {
+            var borrows = dbContext.Borrow.Where(b => b.BorrowState == "Odebrano").ToList();
+            List<BorrowViewModel> vm = new List<BorrowViewModel>();
+
+            foreach (var borrow in borrows)
+            {
+                var specimen = dbContext.BookSpecimen.Where(s => s.Id == borrow.BookId).FirstOrDefault();
+                var book = dbContext.Book.Where(b => b.Id == specimen.BookId).FirstOrDefault();
+
+                vm.Add(new BorrowViewModel
+                {
+                    Id = borrow.Id,
+                    BookName = book.Title,
+                    Author = book.Author,
+                    BorrowDate = borrow.BorrowDate,
+                    BorrowState = borrow.BorrowState,
+                    Username = dbContext.Users.Where(u => u.UserID == borrow.UserId).FirstOrDefault().EmailID
+                });
+            }
+
+            return View(vm);
+        }
+
+        public ActionResult ReturnedBook()
+        {
+            var borrows = dbContext.Borrow.Where(b => b.BorrowState == "Zwrócono").ToList();
+            List<BorrowViewModel> vm = new List<BorrowViewModel>();
+
+            foreach (var borrow in borrows)
+            {
+                var specimen = dbContext.BookSpecimen.Where(s => s.Id == borrow.BookId).FirstOrDefault();
+                var book = dbContext.Book.Where(b => b.Id == specimen.BookId).FirstOrDefault();
+
+                vm.Add(new BorrowViewModel
+                {
+                    Id = borrow.Id,
+                    BookName = book.Title,
+                    Author = book.Author,
+                    BorrowDate = borrow.BorrowDate,
+                    BorrowState = borrow.BorrowState,
+                    Username = dbContext.Users.Where(u => u.UserID == borrow.UserId).FirstOrDefault().EmailID
+                });
+            }
+
+            return View(vm);
+        }
+
+        public ActionResult UserReturnedBook(int id)
+        {
+            var borrow = dbContext.Borrow.Where(b => b.Id == id).FirstOrDefault();
+
+            borrow.BorrowState = "Zwrócono";
+            dbContext.SaveChanges();
+
+            return RedirectToAction("ReturnBook");
+        }
+
+        public ActionResult ChangeBorrowStatus(int id)
+        {
+            var borrow = dbContext.Borrow.Where(b => b.Id == id).FirstOrDefault();
+
+            borrow.BorrowState = "Odebrano";
+            dbContext.SaveChanges();
+
+            return RedirectToAction("BorrowsToVerify");
         }
     }
 }

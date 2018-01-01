@@ -24,5 +24,8 @@ namespace MVCLibrary.ViewModels
 
         [Display(Name = "Kategoria")]
         public string Category { get; set; }
+
+        [Display(Name = "Na stanie")]
+        public int BooksInLibrary { get; set; }
     }
 }

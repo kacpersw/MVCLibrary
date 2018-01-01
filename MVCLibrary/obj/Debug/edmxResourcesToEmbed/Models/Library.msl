@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="LibraryModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserBooks" ColumnName="UserBooks" />
           <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
           <ScalarProperty Name="IsUserVerified" ColumnName="IsUserVerified" />
           <ScalarProperty Name="Role" ColumnName="Role" />
@@ -28,6 +29,7 @@
     <EntitySetMapping Name="Book">
       <EntityTypeMapping TypeName="LibraryModel.Book">
         <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="BooksInLibrary" ColumnName="BooksInLibrary" />
           <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
           <ScalarProperty Name="CountBooks" ColumnName="CountBooks" />
           <ScalarProperty Name="Author" ColumnName="Author" />

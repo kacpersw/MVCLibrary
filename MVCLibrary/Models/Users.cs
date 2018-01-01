@@ -28,6 +28,7 @@ namespace MVCLibrary.Models
         public string Role { get; set; }
         public Nullable<bool> IsUserVerified { get; set; }
         public Nullable<System.Guid> ActivationCode { get; set; }
+        public Nullable<int> UserBooks { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Borrow> Borrow { get; set; }

@@ -24,6 +24,7 @@
           <Property Name="Author" Type="nvarchar" MaxLength="100" />
           <Property Name="CountBooks" Type="int" Nullable="false" />
           <Property Name="CategoryId" Type="int" />
+          <Property Name="BooksInLibrary" Type="int" />
         </EntityType>
         <EntityType Name="BookSpecimen">
           <Key>
@@ -70,6 +71,7 @@
           <Property Name="Role" Type="nvarchar" MaxLength="50" />
           <Property Name="IsUserVerified" Type="bit" />
           <Property Name="ActivationCode" Type="uniqueidentifier" />
+          <Property Name="UserBooks" Type="int" />
         </EntityType>
         <Association Name="fkBook">
           <End Role="BookSpecimen" Type="Self.BookSpecimen" Multiplicity="1" />
@@ -186,6 +188,7 @@
           <Property Name="IsUserVerified" Type="Boolean" />
           <Property Name="ActivationCode" Type="Guid" />
           <NavigationProperty Name="Borrow" Relationship="LibraryModel.fkUser" FromRole="Users" ToRole="Borrow" />
+          <Property Name="UserBooks" Type="Int32" />
         </EntityType>
         <EntityType Name="AdminMessage">
           <Key>
@@ -208,6 +211,7 @@
           <Property Name="CategoryId" Type="Int32" />
           <NavigationProperty Name="Category" Relationship="LibraryModel.fkToCategory" FromRole="Book" ToRole="Category" />
           <NavigationProperty Name="BookSpecimen" Relationship="LibraryModel.fkBookSpecimen" FromRole="Book" ToRole="BookSpecimen" />
+          <Property Name="BooksInLibrary" Type="Int32" />
         </EntityType>
         <EntityType Name="BookSpecimen">
           <Key>
@@ -304,6 +308,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="LibraryModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserBooks" ColumnName="UserBooks" />
                 <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
                 <ScalarProperty Name="IsUserVerified" ColumnName="IsUserVerified" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
@@ -328,6 +333,7 @@
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="LibraryModel.Book">
               <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="BooksInLibrary" ColumnName="BooksInLibrary" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="CountBooks" ColumnName="CountBooks" />
                 <ScalarProperty Name="Author" ColumnName="Author" />

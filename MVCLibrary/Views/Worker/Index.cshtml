@@ -21,8 +21,11 @@
     @Html.ActionLink("Lista książek", "BooksList", "Worker", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
     <br />
     <br />
-    @Html.ActionLink("Dodaj odbiór książki", "", "", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    @Html.ActionLink("Dodaj odbiór książki", "BorrowsToVerify", "Worker", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
     <br />
     <br />
-    @Html.ActionLink("Dodaj zwrot książki", "", "", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    @Html.ActionLink("Dodaj zwrot książki", "ReturnBook", "Worker", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br />
+    <br />
+    @Html.ActionLink("Zrealizowane wypożyczenia", "ReturnedBook", "Worker", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
 </div> 

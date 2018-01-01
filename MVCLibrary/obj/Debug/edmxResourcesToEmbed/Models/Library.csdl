@@ -38,6 +38,7 @@
     <Property Name="IsUserVerified" Type="Boolean" />
     <Property Name="ActivationCode" Type="Guid" />
     <NavigationProperty Name="Borrow" Relationship="LibraryModel.fkUser" FromRole="Users" ToRole="Borrow" />
+    <Property Name="UserBooks" Type="Int32" />
   </EntityType>
   <EntityType Name="AdminMessage">
     <Key>
@@ -60,6 +61,7 @@
     <Property Name="CategoryId" Type="Int32" />
     <NavigationProperty Name="Category" Relationship="LibraryModel.fkToCategory" FromRole="Book" ToRole="Category" />
     <NavigationProperty Name="BookSpecimen" Relationship="LibraryModel.fkBookSpecimen" FromRole="Book" ToRole="BookSpecimen" />
+    <Property Name="BooksInLibrary" Type="Int32" />
   </EntityType>
   <EntityType Name="BookSpecimen">
     <Key>

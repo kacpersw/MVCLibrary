@@ -19,6 +19,7 @@
     <Property Name="Author" Type="nvarchar" MaxLength="100" />
     <Property Name="CountBooks" Type="int" Nullable="false" />
     <Property Name="CategoryId" Type="int" />
+    <Property Name="BooksInLibrary" Type="int" />
   </EntityType>
   <EntityType Name="BookSpecimen">
     <Key>
@@ -65,6 +66,7 @@
     <Property Name="Role" Type="nvarchar" MaxLength="50" />
     <Property Name="IsUserVerified" Type="bit" />
     <Property Name="ActivationCode" Type="uniqueidentifier" />
+    <Property Name="UserBooks" Type="int" />
   </EntityType>
   <Association Name="fkBook">
     <End Role="BookSpecimen" Type="Self.BookSpecimen" Multiplicity="1" />

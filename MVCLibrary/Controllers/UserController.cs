@@ -41,6 +41,7 @@ namespace MVCLibrary.Controllers
                 user.ConfirmPass = Crypto.Hash(user.ConfirmPass);
                 user.IsUserVerified = false;
                 user.Role = user.Role;
+                user.UserBooks = 0;
 
                 using (LibraryEntities dbContext = new LibraryEntities())
                 {

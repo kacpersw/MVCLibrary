@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVCLibrary.CartService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Principal;
@@ -20,6 +21,8 @@ namespace MVCLibrary
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
         }
         protected void Application_AuthenticateRequest(Object sender, EventArgs e)
         {

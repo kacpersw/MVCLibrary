@@ -23,6 +23,9 @@
             @Html.DisplayNameFor(model => model.CountBooks)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.BooksInLibrary)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Category)
         </th>
         <th></th>
@@ -44,10 +47,13 @@
                 @Html.DisplayFor(modelItem => item.CountBooks)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.BooksInLibrary)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Category)
             </td>
             <td>
-                @Html.ActionLink("Dodaj do koszyka", "AddToCart", new { id = item.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Dodaj do koszyka", "AddProductToCart", new { id = item.Id }, new { @class = "btn btn-default" })
             </td>
         </tr>
     }

@@ -18,6 +18,7 @@ namespace MVCLibrary.Models
         public LibraryEntities()
             : base("name=LibraryEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

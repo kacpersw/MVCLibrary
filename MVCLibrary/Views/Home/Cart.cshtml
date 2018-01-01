@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MVCLibrary.ViewModels.BookToShowViewModel>
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+<div class="text-center">
+    <h3>Koszyk</h3>
+</div>
+
+@if (Model != null && Model.Count() != 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountBooks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BooksInLibrary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountBooks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BooksInLibrary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.ActionLink("Usuń", "RemoveProductFromCart", new { id = item.Id }, new { @class = "btn btn-warning" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="text-center">
+        @Html.ActionLink("Zamów", "CreateBorrow", null, new { @class = "btn btn-success" })
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <span>Twój koszyk jest pusty</span>
+    </div>
+}

@@ -26,6 +26,7 @@ namespace MVCLibrary.Models
         public string Author { get; set; }
         public int CountBooks { get; set; }
         public Nullable<int> CategoryId { get; set; }
+        public Nullable<int> BooksInLibrary { get; set; }
     
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
