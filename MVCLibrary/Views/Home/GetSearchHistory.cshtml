@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVCLibrary.ViewModels.SearchArchiveViewModel>
+
+@{
+    ViewBag.Title = "GetSearchHistory";
+}
+
+<div class="text-center">
+    <h3>Historia wyszukiwania</h3>
+</div>
+
+@foreach (var search in Model)
+{
+    <div class="text-center">
+        <h4>@search.Title</h4>
+        <span>@search.Date.ToString("MM/dd/yyyy")</span>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ISBN</th>
+                <th>Tytuł</th>
+                <th>Autor</th>
+                <th>Ilość</th>
+                <th>Na stanie</th>
+                <th>Kategoria</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in search.BookList)
+            {
+                <tr>
+                    <td>@book.ISBN</td>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.CountBooks</td>
+                    <td>@book.BooksInLibrary</td>
+                    <td>@book.Category</td>
+                    @if (User.Identity.IsAuthenticated && book.BooksInLibrary > 0)
+                    {
+                        <td>@Html.ActionLink("Dodaj do koszyka", "AddProductToCart", new { id = book.Id }, new { @class = "btn btn-default" })</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}

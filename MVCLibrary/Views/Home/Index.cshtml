@@ -2,20 +2,20 @@
 
 
 <div class="text-center">
-    <br/>
+    <br />
 
     @Html.ActionLink("Wszystkie książki", "AllBooks", "Home", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
 
-    <br/>
+    <br />
     <div class="text-center">
         <h3>Wyszukaj książki</h3>
-        <br/>
+        <br />
         @using (Html.BeginForm("SearchBooks", "Home", FormMethod.Post, new { encype = "multipart/form-data", runat = "server" }))
         {
             <label for="value">Tytuł, Autor, ISBN</label>
-            <br/>
+            <br />
             <input type="text" name="value" class="inputs-size-bigger edittext-width" />
-            <br/>
+            <br />
             <input type="submit" class="btn btn-success" style="margin: 10px;" value="Szukaj" />
         }
     </div>
@@ -34,11 +34,11 @@
     </div>
 
 </div>
-<br/>
+<br />
 
 <div class="text-center">
     <h3>Wiadomości</h3>
-    <br/>
+    <br />
     @foreach (var message in Model.Messages)
     {
         <div class="text-center">
@@ -47,7 +47,7 @@
                 <span>@message.Content</span>
             </div>
         </div>
-        
+
         <br />
         <br />
     }
@@ -56,7 +56,7 @@
 
     <h3>Nowości</h3>
 
-   
+
 
 </div>
 
@@ -69,23 +69,29 @@
             <th>Ilość</th>
             <th>Na stanie</th>
             <th>Kategoria</th>
-            <th></th>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <th></th>
+            }
         </tr>
     </thead>
     <tbody>
-        
-            @foreach (var book in Model.Books)
+
+        @foreach (var book in Model.Books)
             {
-                <tr>
-                    <td>@book.ISBN</td>
-                    <td>@book.Title</td>
-                    <td>@book.Author</td>
-                    <td>@book.CountBooks</td>
-                    <td>@book.BooksInLibrary</td>
-                    <td>@book.Category</td>
+            <tr>
+                <td>@book.ISBN</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.CountBooks</td>
+                <td>@book.BooksInLibrary</td>
+                <td>@book.Category</td>
+                @if (User.Identity.IsAuthenticated && book.BooksInLibrary > 0)
+                {
                     <td>@Html.ActionLink("Dodaj do koszyka", "AddProductToCart", new { id = book.Id }, new { @class = "btn btn-default" })</td>
-                </tr>
-            }
-                
+                }
+            </tr>
+        }
+
     </tbody>
 </table>

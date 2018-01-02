@@ -46,6 +46,14 @@
                     }
                     @if (Request.IsAuthenticated)
                     {
+                        <li>@Html.ActionLink("Panel użytkownika", "UserPanel", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    }
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Koszyk", "Cart", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    }
+                    @if (Request.IsAuthenticated)
+                    {
                         <li>@Html.ActionLink("Wyloguj się", "Logout", "User", new { area = "" }, new { @class = "navbar-brand" })</li>
                     }
                     @if (!Request.IsAuthenticated)

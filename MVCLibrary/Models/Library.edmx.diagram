@@ -16,6 +16,7 @@
         <AssociationConnector Association="LibraryModel.fkBook" />
         <AssociationConnector Association="LibraryModel.fkUser" />
         <AssociationConnector Association="LibraryModel.fkBookSpecimen" />
+        <EntityTypeShape EntityType="LibraryModel.Search" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

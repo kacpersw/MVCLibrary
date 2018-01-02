@@ -24,6 +24,7 @@
       <End Role="Book" EntitySet="Book" />
       <End Role="BookSpecimen" EntitySet="BookSpecimen" />
     </AssociationSet>
+    <EntitySet Name="Search" EntityType="LibraryModel.Search" />
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -149,4 +150,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Search">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfSearch" Type="DateTime" Precision="0" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+  </EntityType>
 </Schema>

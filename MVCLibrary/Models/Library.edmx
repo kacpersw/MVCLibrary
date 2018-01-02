@@ -59,6 +59,15 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CountOfBooks" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Search">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfSearch" Type="date" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="UserID" />
@@ -128,6 +137,7 @@
           <EntitySet Name="Borrow" EntityType="Self.Borrow" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Limit" EntityType="Self.Limit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Search" EntityType="Self.Search" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fkBook" Association="Self.fkBook">
             <End Role="BookSpecimen" EntitySet="BookSpecimen" />
@@ -174,6 +184,7 @@
             <End Role="Book" EntitySet="Book" />
             <End Role="BookSpecimen" EntitySet="BookSpecimen" />
           </AssociationSet>
+          <EntitySet Name="Search" EntityType="LibraryModel.Search" />
         </EntityContainer>
         <EntityType Name="Users">
           <Key>
@@ -299,6 +310,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Search">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfSearch" Type="DateTime" Precision="0" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -376,6 +396,16 @@
             <EntityTypeMapping TypeName="LibraryModel.Limit">
               <MappingFragment StoreEntitySet="Limit">
                 <ScalarProperty Name="CountOfBooks" ColumnName="CountOfBooks" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Search">
+            <EntityTypeMapping TypeName="LibraryModel.Search">
+              <MappingFragment StoreEntitySet="Search">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DateOfSearch" ColumnName="DateOfSearch" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

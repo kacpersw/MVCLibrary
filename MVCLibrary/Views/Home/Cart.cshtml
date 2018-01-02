@@ -71,3 +71,10 @@ else
         <span>Twój koszyk jest pusty</span>
     </div>
 }
+
+@if (ViewBag.Message != null)
+{
+    <div class="text-center has-error">
+        <span>@ViewBag.Message</span>
+    </div>
+}

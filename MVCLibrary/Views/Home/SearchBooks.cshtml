@@ -28,7 +28,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Category)
         </th>
-        <th></th>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <th></th>
+        }
     </tr>
 
     @foreach (var item in Model)
@@ -52,9 +55,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Category)
             </td>
-            <td>
-                @Html.ActionLink("Dodaj do koszyka", "AddProductToCart", new { id = item.Id }, new { @class = "btn btn-default" })
-            </td>
+            @if (User.Identity.IsAuthenticated && item.BooksInLibrary>0)
+            {
+                <td>
+                    @Html.ActionLink("Dodaj do koszyka", "AddProductToCart", new { id = item.Id }, new { @class = "btn btn-default" })
+                </td>
+            }
+
         </tr>
     }
 

@@ -17,6 +17,8 @@ namespace MVCLibrary.ViewModels
         public string Author { get; set; }
 
         [Display(Name = "Data wypożyczenia")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime BorrowDate { get; set; }
 
         [Display(Name = "Użytkownik")]

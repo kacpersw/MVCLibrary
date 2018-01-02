@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "UserPanel";
+}
+
+<div class="text-center">
+    <h2>Co chcesz zrobić?</h2>
+    <br />
+
+    @Html.ActionLink("Historia wyszukiwań", "GetSearchHistory", "Home", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br />
+    <br />
+    @Html.ActionLink("Historia wypożyczeń", "UserBorrow", "Home", new { area = "" }, new { @class = "btn btn-success btn-adm-width" })
+    <br />
+    <br />
+</div> 

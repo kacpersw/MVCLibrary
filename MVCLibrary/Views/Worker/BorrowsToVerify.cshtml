@@ -40,7 +40,7 @@
                     @Html.DisplayFor(modelItem => item.Author)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.BorrowDate)
+                    @item.BorrowDate.ToString("MM/dd/yyyy")
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Username)

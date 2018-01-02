@@ -18,11 +18,13 @@ namespace MVCLibrary.Controllers
         }
 
         // GET: Worker
+        [Authorize(Roles = "Worker, Admin")]
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         public ActionResult CategoriesList()
         {
             var categories = dbContext.Category.ToList();
@@ -48,16 +50,27 @@ namespace MVCLibrary.Controllers
             return View(vm);
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         public ActionResult UsersToVerify()
         {
+            if (User.IsInRole("Admin"))
+            {
+                var users = dbContext.Users
+                .ToList();
 
-            var users = dbContext.Users
+                return View(users);
+            }
+            else
+            {
+                var users = dbContext.Users
                 .Where(u => u.Role == "User")
                 .ToList();
 
-            return View(users);
+                return View(users);
+            }           
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         public ActionResult VerifyUsers(string emailID)
         {
 
@@ -75,6 +88,7 @@ namespace MVCLibrary.Controllers
             return View("Index");
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         public ActionResult RemoveUser(string emailID)
         {
 
@@ -91,6 +105,7 @@ namespace MVCLibrary.Controllers
             return View("Index");
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         [HttpGet]
         public ActionResult AddCategory()
         {
@@ -108,6 +123,7 @@ namespace MVCLibrary.Controllers
             return View(vm);
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         [HttpPost]
         public ActionResult AddCategory(CategoryViewModel vm)
         {
@@ -123,6 +139,7 @@ namespace MVCLibrary.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         [HttpGet]
         public ActionResult AddBook()
         {
@@ -139,6 +156,7 @@ namespace MVCLibrary.Controllers
             return View(vm);
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         [HttpPost]
         public ActionResult AddBook(BookViewModel vm)
         {
@@ -168,6 +186,7 @@ namespace MVCLibrary.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         public ActionResult BooksList()
         {
             var books = dbContext.Book.ToList();
@@ -190,6 +209,7 @@ namespace MVCLibrary.Controllers
             return View(vm);
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         [HttpGet]
         public ActionResult AddSpecimen(int id)
         {
@@ -204,6 +224,7 @@ namespace MVCLibrary.Controllers
             return View(vm);
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         [HttpPost]
         public ActionResult AddSpecimen(SpecimenViewModel vm)
         {
@@ -230,6 +251,7 @@ namespace MVCLibrary.Controllers
             return RedirectToAction("Index", "Worker");
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         public ActionResult BorrowsToVerify()
         {
             var borrows = dbContext.Borrow.Where(b => b.BorrowState == "Zgłoszono").ToList();
@@ -254,6 +276,7 @@ namespace MVCLibrary.Controllers
             return View(vm);
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         public ActionResult ReturnBook()
         {
             var borrows = dbContext.Borrow.Where(b => b.BorrowState == "Odebrano").ToList();
@@ -278,6 +301,7 @@ namespace MVCLibrary.Controllers
             return View(vm);
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         public ActionResult ReturnedBook()
         {
             var borrows = dbContext.Borrow.Where(b => b.BorrowState == "Zwrócono").ToList();
@@ -302,9 +326,14 @@ namespace MVCLibrary.Controllers
             return View(vm);
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         public ActionResult UserReturnedBook(int id)
         {
             var borrow = dbContext.Borrow.Where(b => b.Id == id).FirstOrDefault();
+            var bookSpecimen = dbContext.BookSpecimen.Where(b => b.Id == borrow.BookId).FirstOrDefault();
+            bookSpecimen.StatusOfBook = "Magazyn";
+            var book = dbContext.Book.Where(b => b.Id == bookSpecimen.BookId).FirstOrDefault();
+            book.BooksInLibrary += 1;
 
             borrow.BorrowState = "Zwrócono";
             dbContext.SaveChanges();
@@ -312,14 +341,45 @@ namespace MVCLibrary.Controllers
             return RedirectToAction("ReturnBook");
         }
 
+        [Authorize(Roles = "Worker, Admin")]
         public ActionResult ChangeBorrowStatus(int id)
         {
             var borrow = dbContext.Borrow.Where(b => b.Id == id).FirstOrDefault();
+            var bookSpecimen = dbContext.BookSpecimen.Where(b => b.Id == borrow.BookId).FirstOrDefault();
+            bookSpecimen.StatusOfBook = "Czytelnik";
 
             borrow.BorrowState = "Odebrano";
             dbContext.SaveChanges();
 
             return RedirectToAction("BorrowsToVerify");
+        }
+
+        [Authorize(Roles = "Admin, Worker")]
+        public ActionResult CheckUserBorrows(string emailID)
+        {
+            var userId = dbContext.Users.Where(u => u.EmailID == emailID).FirstOrDefault().UserID;
+
+            List<BorrowViewModel> vm = new List<BorrowViewModel>();
+
+            var borrows = dbContext.Borrow.Where(b => b.UserId == userId).ToList();
+
+            foreach (var borrow in borrows)
+            {
+                var specimen = dbContext.BookSpecimen.Where(s => s.Id == borrow.BookId).FirstOrDefault();
+                var book = dbContext.Book.Where(b => b.Id == specimen.BookId).FirstOrDefault();
+
+                vm.Add(new BorrowViewModel
+                {
+                    Id = borrow.Id,
+                    BookName = book.Title,
+                    Author = book.Author,
+                    BorrowDate = borrow.BorrowDate,
+                    BorrowState = borrow.BorrowState,
+                    Username = dbContext.Users.Where(u => u.UserID == borrow.UserId).FirstOrDefault().EmailID
+                });
+            }
+
+            return View(vm);
         }
     }
 }

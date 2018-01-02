@@ -58,6 +58,12 @@ namespace MVCLibrary.Controllers
             return View(vm);
         }
 
+        public ActionResult UserPanel()
+        {
+            return View();
+        }
+
+
         [HttpPost]
         public ActionResult SearchBooks(string value)
         {
@@ -78,6 +84,17 @@ namespace MVCLibrary.Controllers
                     BooksInLibrary = book.BooksInLibrary ?? 0
                 });
             }
+
+            var userEmail = User.Identity.Name;
+            var user = dbContext.Users.Where(u => u.EmailID == userEmail).FirstOrDefault();
+
+            dbContext.Search.Add(new Search
+            {
+                UserId = user.UserID,
+                Title = value,
+                DateOfSearch = DateTime.Now
+            });
+            dbContext.SaveChanges();
 
             return View(vm);
         }
@@ -107,6 +124,16 @@ namespace MVCLibrary.Controllers
                     BooksInLibrary = book.BooksInLibrary ?? 0
                 });
             }
+            var userEmail = User.Identity.Name;
+            var user = dbContext.Users.Where(u => u.EmailID == userEmail).FirstOrDefault();
+
+            dbContext.Search.Add(new Search
+            {
+                UserId = user.UserID,
+                Title = value,
+                DateOfSearch = DateTime.Now
+            });
+            dbContext.SaveChanges();
 
             return View("SearchBooks", vm);
         }
@@ -134,6 +161,7 @@ namespace MVCLibrary.Controllers
             return View("SearchBooks", vm);
         }
 
+        [Authorize]
         public ActionResult AddProductToCart(Cart cart, int id, int quantity = 1)
         {
             Book item = dbContext.Book.Where(b => b.Id == id).FirstOrDefault();
@@ -141,6 +169,7 @@ namespace MVCLibrary.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
         public ActionResult RemoveProductFromCart(Cart cart, int id)
         {
             Book item = dbContext.Book.Where(b => b.Id == id).FirstOrDefault();
@@ -149,6 +178,7 @@ namespace MVCLibrary.Controllers
             return RedirectToAction("Cart");
         }
 
+        [Authorize]
         public ActionResult Cart(Cart cart)
         {
             List<BookToShowViewModel> vm = new List<BookToShowViewModel>();
@@ -174,22 +204,118 @@ namespace MVCLibrary.Controllers
         public ActionResult CreateBorrow(Cart cart)
         {
             var user = User.Identity.Name;
-            var userId = dbContext.Users.Where(u => u.EmailID == user).FirstOrDefault().UserID;
+            var userObject = dbContext.Users.Where(u => u.EmailID == user).FirstOrDefault();
+            var userId = userObject.UserID;
+            var limit = dbContext.Limit.FirstOrDefault();
+
+            if (userObject.UserBooks + cart.Books.Count > limit.CountOfBooks)
+            {
+                ViewBag.Message = "Nie możesz wypożyczyć tylu książek, ponieważ przekraczasz limit";
+                return RedirectToAction("Cart", "Home");
+            }
+
             foreach (var book in cart.Books)
             {
                 BookSpecimen bs = dbContext.BookSpecimen.Where(b => b.BookId == book.Id && b.StatusOfBook == "Magazyn").FirstOrDefault();
+                bs.StatusOfBook = "Zamówiona";
+                var bookToUpdate = dbContext.Book.Where(b => b.Id == book.Id).FirstOrDefault();
+
+                bookToUpdate.BooksInLibrary -= 1;
+                dbContext.SaveChanges();
 
                 dbContext.Borrow.Add(new Borrow
                 {
                     BorrowDate = DateTime.Now,
                     BorrowState = "Zgłoszono",
                     BookId = bs.Id,
-                    UserId =userId,
+                    UserId = userId,
                 });
             }
-            dbContext.SaveChanges();
 
-            return View();
+            userObject.UserBooks += cart.Books.Count;
+            dbContext.SaveChanges();
+            cart = new Cart();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize]
+        public ActionResult UserBorrow()
+        {
+            var user = User.Identity.Name;
+            var userId = dbContext.Users.Where(u => u.EmailID == user).FirstOrDefault().UserID;
+
+            List<BorrowViewModel> vm = new List<BorrowViewModel>();
+
+            var borrows = dbContext.Borrow.Where(b => b.UserId == userId).ToList();
+
+            foreach (var borrow in borrows)
+            {
+                var specimen = dbContext.BookSpecimen.Where(s => s.Id == borrow.BookId).FirstOrDefault();
+                var book = dbContext.Book.Where(b => b.Id == specimen.BookId).FirstOrDefault();
+
+                vm.Add(new BorrowViewModel
+                {
+                    Id = borrow.Id,
+                    BookName = book.Title,
+                    Author = book.Author,
+                    BorrowDate = borrow.BorrowDate,
+                    BorrowState = borrow.BorrowState,
+                    Username = dbContext.Users.Where(u => u.UserID == borrow.UserId).FirstOrDefault().EmailID
+                });
+            }
+
+            return View(vm);
+        }
+
+        [Authorize]
+        public ActionResult GetSearchHistory()
+        {
+            var userEmail = User.Identity.Name;
+            var user = dbContext.Users.Where(u => u.EmailID == userEmail).FirstOrDefault();
+
+            var search = dbContext.Search.Where(s => s.UserId == user.UserID).ToList();
+            //todo
+
+            List<SearchArchiveViewModel> vm = new List<SearchArchiveViewModel>();
+            foreach (var s in search)
+            {
+                var category = dbContext.Category.Where(c => c.NameOfCategory == s.Title).FirstOrDefault();
+                int categoryId;
+                if (category == null)
+                {
+                    categoryId = -1;
+                }
+                else
+                {
+                    categoryId = category.Id;
+                }
+
+                List<Book> books = dbContext.Book.Where(b => b.Title == s.Title || b.ISBN == s.Title || b.Author == s.Title || b.CategoryId == categoryId).ToList();
+                List<BookToShowViewModel> booksViewModel = new List<BookToShowViewModel>();
+
+                foreach (var book in books)
+                {
+                    booksViewModel.Add(new BookToShowViewModel
+                    {
+                        Author = book.Author,
+                        BooksInLibrary = book.BooksInLibrary??0,
+                        CountBooks = book.CountBooks,
+                        Id = book.Id,
+                        ISBN = book.ISBN,
+                        Title = book.Title,
+                        Category = dbContext.Category.Where(c=>c.Id == book.CategoryId).FirstOrDefault().NameOfCategory
+                    });
+                }
+                vm.Add(new SearchArchiveViewModel
+                {
+                    Date = s.DateOfSearch??DateTime.Now,
+                    Title = s.Title,
+                    BookList = booksViewModel
+                });
+
+            }
+
+            return View(vm);
         }
     }
 }

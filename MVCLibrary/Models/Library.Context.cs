@@ -33,5 +33,6 @@ namespace MVCLibrary.Models
         public virtual DbSet<Borrow> Borrow { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Limit> Limit { get; set; }
+        public virtual DbSet<Search> Search { get; set; }
     }
 }

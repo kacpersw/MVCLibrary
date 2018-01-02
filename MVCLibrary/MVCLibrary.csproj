@@ -229,6 +229,9 @@
     <Compile Include="Models\Limit.cs">
       <DependentUpon>Library.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Search.cs">
+      <DependentUpon>Library.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\Users.cs">
       <DependentUpon>Library.tt</DependentUpon>
@@ -240,6 +243,7 @@
     <Compile Include="ViewModels\CategoryToShowViewModel.cs" />
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\SearchArchiveViewModel.cs" />
     <Compile Include="ViewModels\SpecimenViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -330,6 +334,10 @@
     <Content Include="Views\Worker\BorrowsToVerify.cshtml" />
     <Content Include="Views\Worker\ReturnBook.cshtml" />
     <Content Include="Views\Worker\ReturnedBook.cshtml" />
+    <Content Include="Views\Home\UserPanel.cshtml" />
+    <Content Include="Views\Home\UserBorrow.cshtml" />
+    <Content Include="Views\Worker\CheckUserBorrows.cshtml" />
+    <Content Include="Views\Home\GetSearchHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
