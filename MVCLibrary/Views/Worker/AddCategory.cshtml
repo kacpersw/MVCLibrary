@@ -17,9 +17,9 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="text-center">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "text-center" })<br/>
+            <label>Nazwa</label><br/>
             <div class="text-center">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "text-center" } })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "text-center" } })<br/>
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>

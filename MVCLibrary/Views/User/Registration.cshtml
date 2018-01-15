@@ -30,8 +30,8 @@ else
             <div class="text-center">
                 @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "text-center" })
                 <div class="text-center">
-                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "text-center" } })
-                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "text-center" } })<br />
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })<br />
                 </div>
             </div>
             <br />
@@ -39,8 +39,8 @@ else
                 @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "text-center" })
                 <br />
                 <div class="text-center">
-                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "text-center" } })
-                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "text-center" } })<br />
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })<br />
                 </div>
             </div>
             <br />
@@ -48,9 +48,9 @@ else
                 @Html.LabelFor(model => model.EmailID, htmlAttributes: new { @class = "text-center" })
                 <br />
                 <div class="text-center">
-                    @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @class = "text-center" } })
-                    @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
-                    @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @class = "text-center" } })<br/>
+                    @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })<br />
+                    @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })<br />
                 </div>
             </div>
             <br />
@@ -58,17 +58,17 @@ else
                 @Html.LabelFor(model => model.Pass, htmlAttributes: new { @class = "text-center" })
                 <br />
                 <div class="text-center">
-                    @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "text-center" } })
-                    @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "text-center" } })<br />
+                    @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })<br />
                 </div>
             </div>
             <br />
-            <div class="form-group">
+            <div class="text-center">
                 @Html.LabelFor(model => model.ConfirmPass, htmlAttributes: new { @class = "text-center" })
                 <br />
                 <div class="text-center">
-                    @Html.EditorFor(model => model.ConfirmPass, new { htmlAttributes = new { @class = "text-center" } })
-                    @Html.ValidationMessageFor(model => model.ConfirmPass, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.ConfirmPass, new { htmlAttributes = new { @class = "text-center" } })<br />
+                    @Html.ValidationMessageFor(model => model.ConfirmPass, "", new { @class = "text-danger" })<br />
                 </div>
             </div>
             <br />
@@ -92,12 +92,7 @@ else
             </div>
         </div>
 
-        if (ViewBag.Message != null)
-        {
-            <div class="alet alert-danger">
-                <strong>Błąd!</strong> @ViewBag.Message
-            </div>
-        }
+
     }
 }
 

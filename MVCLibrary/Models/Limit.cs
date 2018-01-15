@@ -11,10 +11,13 @@ namespace MVCLibrary.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Limit
     {
         public int Id { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Pole wymagane")]
         public int CountOfBooks { get; set; }
     }
 }

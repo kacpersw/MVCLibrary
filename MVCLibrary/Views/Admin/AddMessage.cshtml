@@ -17,7 +17,7 @@
         <div class="text-center">
             <label>Tytuł</label>
             <div class="text-center">
-                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "text-center edittext-width" } })
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "text-center edittext-width" } })<br/>
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -25,8 +25,8 @@
 
         <div class="text-center">
             <label>Treść</label>
-            <div class="text-center">
-                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "text-center edittext-width edittext-height" } })
+            <div class="">
+                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "edittext-width edittext-height" } })<br />
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -10,6 +10,7 @@ namespace MVCLibrary.ViewModels
     {
         public int Id { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Pole wymagane")]
         [Display(Name = "Ilość")]
         public int Count {get;set;}
     }

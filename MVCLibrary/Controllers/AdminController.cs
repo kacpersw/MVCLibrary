@@ -81,9 +81,17 @@ namespace MVCLibrary.Controllers
         [HttpPost]
         public ActionResult AddMessage(AdminMessage message)
         {
-            message.MainPage = true;
-            dbContext.AdminMessage.Add(message);
-            dbContext.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                message.MainPage = true;
+                dbContext.AdminMessage.Add(message);
+                dbContext.SaveChanges();
+            }
+            else
+            {
+                return View();
+            }
+
 
             return RedirectToAction("Index", "Admin");
         }
@@ -142,13 +150,21 @@ namespace MVCLibrary.Controllers
         {
             try
             {
-                var l = dbContext.Limit.FirstOrDefault();
+                if (ModelState.IsValid)
+                {
+                    var l = dbContext.Limit.FirstOrDefault();
 
-                if (l != null)
-                    dbContext.Limit.Remove(l);
+                    if (l != null)
+                        dbContext.Limit.Remove(l);
 
-                dbContext.Limit.Add(limit);
-                dbContext.SaveChanges();
+                    dbContext.Limit.Add(limit);
+                    dbContext.SaveChanges();
+                }
+                else
+                {
+                    return View();
+                }
+
             }
             catch (Exception e)
             {

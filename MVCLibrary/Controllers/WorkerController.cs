@@ -127,11 +127,28 @@ namespace MVCLibrary.Controllers
         [HttpPost]
         public ActionResult AddCategory(CategoryViewModel vm)
         {
-            dbContext.Category.Add(new Category
+            if (vm.ParentId == null)
+                vm.ParentId = 0;
+            
+            if (ModelState.IsValid)
             {
-                NameOfCategory = vm.Name,
-                ParentId = vm.ParentId
-            });
+                dbContext.Category.Add(new Category
+                {
+                    NameOfCategory = vm.Name,
+                    ParentId = vm.ParentId
+                });
+            }
+            else
+            {
+                var categories = dbContext.Category.ToList();
+                vm.Parents = categories.Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = c.NameOfCategory
+                });
+                return View(vm);
+            }
+            
 
 
             dbContext.SaveChanges();
@@ -160,28 +177,45 @@ namespace MVCLibrary.Controllers
         [HttpPost]
         public ActionResult AddBook(BookViewModel vm)
         {
-            Book book = new Book
+            if (ModelState.IsValid)
             {
-                Author = vm.Author,
-                CategoryId = vm.CategoryId,
-                CountBooks = vm.CountBooks,
-                ISBN = vm.ISBN,
-                Title = vm.Title,
-                BooksInLibrary = vm.CountBooks
-            };
-
-            dbContext.Book.Add(book);
-
-            for (int i = 0; i < vm.CountBooks; i++)
-            {
-                dbContext.BookSpecimen.Add(new BookSpecimen
+                Book book = new Book
                 {
-                    BookId = book.Id,
-                    StatusOfBook = "Magazyn"
-                });
-            }
+                    Author = vm.Author,
+                    CategoryId = vm.CategoryId,
+                    CountBooks = vm.CountBooks,
+                    ISBN = vm.ISBN,
+                    Title = vm.Title,
+                    BooksInLibrary = vm.CountBooks
+                };
 
-            dbContext.SaveChanges();
+                dbContext.Book.Add(book);
+
+                for (int i = 0; i < vm.CountBooks; i++)
+                {
+                    dbContext.BookSpecimen.Add(new BookSpecimen
+                    {
+                        BookId = book.Id,
+                        StatusOfBook = "Magazyn"
+                    });
+                }
+
+                dbContext.SaveChanges();
+            }
+            else
+            {
+                var categories = dbContext.Category.ToList();
+
+                var vm2 = new BookViewModel();
+
+                vm2.Categories = categories.Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = c.NameOfCategory
+                });
+                return View(vm2);
+            }
+            
 
             return RedirectToAction("Index", "Home");
         }
@@ -230,18 +264,26 @@ namespace MVCLibrary.Controllers
         {
             try
             {
-                for (int i = 0; i < vm.Count; i++)
+                if (ModelState.IsValid)
                 {
-                    dbContext.BookSpecimen.Add(new BookSpecimen
+                    for (int i = 0; i < vm.Count; i++)
                     {
-                        BookId = vm.Id,
-                        StatusOfBook = "Magazyn"
-                    });
-                }
+                        dbContext.BookSpecimen.Add(new BookSpecimen
+                        {
+                            BookId = vm.Id,
+                            StatusOfBook = "Magazyn"
+                        });
+                    }
 
-                var book = dbContext.Book.Where(b => b.Id == vm.Id).FirstOrDefault();
-                book.CountBooks += vm.Count;
-                dbContext.SaveChanges();
+                    var book = dbContext.Book.Where(b => b.Id == vm.Id).FirstOrDefault();
+                    book.CountBooks += vm.Count;
+                    book.BooksInLibrary += vm.Count;
+                    dbContext.SaveChanges();
+                }
+                else
+                {
+                    return View();
+                }
             }
             catch(Exception e)
             {

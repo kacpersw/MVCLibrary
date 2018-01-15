@@ -3,6 +3,7 @@ using MVCLibrary.Models;
 using MVCLibrary.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,7 +21,7 @@ namespace MVCLibrary.Controllers
 
         public ActionResult Index()
         {
-            var books = dbContext.Book.ToList();
+            var books = dbContext.Book.OrderBy(b=>b.Id).ToList();
 
             List<BookToShowViewModel> bookvm = new List<BookToShowViewModel>(6);
 
@@ -29,9 +30,12 @@ namespace MVCLibrary.Controllers
             {
                 list.Add(book);
             }
-            list = list.OrderBy(b => b.Id).ToList();
+            list = list.OrderBy(b => -b.Id).ToList();
 
             var counter = 0;
+
+
+
             foreach (var book in list)
             {
                 bookvm.Add(new BookToShowViewModel
@@ -221,8 +225,10 @@ namespace MVCLibrary.Controllers
                 var bookToUpdate = dbContext.Book.Where(b => b.Id == book.Id).FirstOrDefault();
 
                 bookToUpdate.BooksInLibrary -= 1;
-                dbContext.SaveChanges();
-
+                //userObject.UserBooks = userObject.UserBooks+1;
+                //dbContext.Users.Attach(userObject);
+                //dbContext.Entry(userObject).State = EntityState.Modified;
+              
                 dbContext.Borrow.Add(new Borrow
                 {
                     BorrowDate = DateTime.Now,
@@ -230,11 +236,13 @@ namespace MVCLibrary.Controllers
                     BookId = bs.Id,
                     UserId = userId,
                 });
+                dbContext.SaveChanges();
+
             }
 
-            userObject.UserBooks += cart.Books.Count;
-            dbContext.SaveChanges();
-            cart = new Cart();
+
+            //dbContext.SaveChanges();
+            cart.Books.Clear();
             return RedirectToAction("Index", "Home");
         }
 

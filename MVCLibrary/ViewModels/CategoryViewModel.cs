@@ -9,6 +9,7 @@ namespace MVCLibrary.ViewModels
 {
     public class CategoryViewModel
     {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Pole wymagane")]
         public string Name { get; set; }
 
         [Display(Name = "Kategoria rodzica")]

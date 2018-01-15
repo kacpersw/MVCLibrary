@@ -20,15 +20,19 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Parent)
-            </td>
+        if (item.Name != " ")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Parent)
+                </td>
 
-        </tr>
+            </tr>
+        }
+
     }
 
 </table>

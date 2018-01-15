@@ -11,11 +11,17 @@ namespace MVCLibrary.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class AdminMessage
     {
         public int Id { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Pole wymagane")]
+        [DataType(DataType.MultilineText)]
         public string Content { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Pole wymagane")]
         public string Title { get; set; }
         public Nullable<bool> MainPage { get; set; }
     }

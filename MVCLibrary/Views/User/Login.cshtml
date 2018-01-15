@@ -20,8 +20,8 @@
             @Html.LabelFor(model => model.EmailID, htmlAttributes: new { @class = "text-center" })
             <br/>
             <div class="text-center">
-                @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @class = "text-center edittext-width" } })
-                @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @class = "text-center edittext-width" } })<br/>
+                @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })<br />
             </div>
         </div>
         <br />
@@ -29,8 +29,8 @@
             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "text-center" })
             <br />
             <div class="text-center">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text-center edittext-width" } })
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "text-center edittext-width" } })<br />
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })<br /> 
             </div>
         </div>
         <br />
